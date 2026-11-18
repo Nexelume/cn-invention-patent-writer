@@ -1,6 +1,6 @@
 ---
 name: cn-invention-patent-writer
-description: Build, search, draft, revise, and audit complete Chinese patent work products from papers, code, designs, experiments, or technical descriptions, including invention mining, prior-art mapping, disclosures, claims, specifications, drawings, office-action preparation, and DOCX delivery. Use for Chinese invention-patent work — 发明专利、技术交底书、专利交底书、权利要求书、说明书、说明书摘要、摘要附图、专利点挖掘、查新、现有技术检索、审查意见答复、申请文件撰写、专利形式检查; do not use for ordinary academic-paper writing.
+description: Build, search, draft, revise, and audit complete Chinese patent work products from papers, code, designs, experiments, or technical descriptions, including active invention discovery from broad technical directions, prior-art mapping, disclosures, claims, specifications, drawings, office-action preparation, and DOCX delivery. Use for Chinese invention-patent work — 发明专利、技术交底书、专利交底书、权利要求书、说明书、说明书摘要、摘要附图、专利点挖掘、查新、现有技术检索、审查意见答复、申请文件撰写、专利形式检查; do not use for ordinary academic-paper writing.
 ---
 
 # Chinese Invention Patent Writer
@@ -20,12 +20,14 @@ Produce a technically implementable, evidence-bounded Chinese invention-patent p
 
 ## Route by task
 
-- For an unfamiliar project or mixed source folder, read [references/project-intake.md](references/project-intake.md) first.
-- For choosing among invention points, application splitting, or planning a complete package, read [references/invention-selection.md](references/invention-selection.md). Run its **concept gate** — three candidate chains, reject two with stated reasons — before drafting any disclosure or claim.
+- For an unfamiliar project or mixed source folder, start with the source inventory in [references/project-intake.md](references/project-intake.md).
+- For a broad direction, a technical problem, or an idea to challenge, use [active invention discovery](references/idea-discovery.md). Respect the user's exploration scope and explicit choice of mode. Begin with an opportunity map and compare different problems or routes before narrowing to an implementation. Keep one [opportunity record](references/opportunity-record.md) for the request. Each candidate proposed for patent validation and admission follows [candidate validation](references/candidate-validation.md) through evidence, technical alternatives, independent review and the current A–D decision. If the user says the direction is too narrow, or new evidence invalidates it, reopen the appropriate level and preserve the prior decisions.
+- Before selecting an invention for drafting or changing an existing technical spine, run the [problem and material check](references/project-intake.md#problem-and-material-check). A literature-backed idea is a hypothesis, not an applicant's invention. If the check fails, deliver exploration findings, targeted questions and a minimal verification suggestion. Do not select a main chain or draft a disclosure or filing text in that state.
+- Once the problem and material check passes, use [references/invention-selection.md](references/invention-selection.md) to screen grounded chains for drafting. Keep one if only one qualifies; if none qualifies, identify the missing support. For a cross-domain concept, check its actual role in the mechanism using [references/terminology.md](references/terminology.md) before retaining it in the main chain.
 - For a requested deliverable or review mode, read [references/deliverable-matrix.md](references/deliverable-matrix.md).
 - For patent or non-patent prior-art search, novelty mapping, patent-family checks, or “是否已有类似专利”, read [references/prior-art.md](references/prior-art.md). For novelty assessment, run the distinguishing sub-combination query first, retrieve the complete relevant disclosure, apply the disclosure checklist and matrix, then use the search-to-revision loop within the requested mode.
 - For any drafting or revision of disclosure, claims, specification, abstract, embodiments, algorithms, data structures, interfaces, or parameters, read [references/drafting.md](references/drafting.md).
-- For terminology selection, term tables, domain vocabulary, or a terminology audit, read [references/terminology.md](references/terminology.md). Read it before drafting any text deliverable, not only when the user asks about wording.
+- For terminology selection, term tables, domain vocabulary, or a terminology audit, read [references/terminology.md](references/terminology.md). Read it before drafting patent text, and before screening a chain that depends on a cross-domain concept.
 - For filing-oriented formal requirements, read [references/formal-checklist.md](references/formal-checklist.md) and run `python scripts/check_form.py <draft> --kind <type>` for the relevant filing component. Use `--kind disclosure` for mechanical diagnostics of a disclosure.
 - Before writing any statute, rule, guideline, time-limit, or fee citation, read [references/legal-baseline.md](references/legal-baseline.md).
 - For editing or generating a DOCX from a supplied template, read [references/docx-delivery.md](references/docx-delivery.md) and also use the available document-editing skill.
@@ -36,10 +38,10 @@ Read every reference required by the current request before acting. Do not load 
 
 Use the requested document type to choose the workflow in [references/deliverable-matrix.md](references/deliverable-matrix.md). Apply the mechanism walkthrough in [references/drafting.md](references/drafting.md) before treating an embodiment as complete.
 
-1. Establish the target deliverable, jurisdiction, the field of art and its classification context, applicant-side terminology, template, and evidence boundary. Build the term table before writing prose.
-2. Trace the technical problem, necessary features, mechanism and direct effect using the field's own structures, processes or data flow. Include feedback where applicable.
+1. Establish the target deliverable, jurisdiction, the field of art and its classification context, applicant-side terminology, template, and evidence boundary where relevant. Build the term table before drafting patent text.
+2. Confirm the technical problem and material sufficiency before selecting a chain for drafting. Ground the problem in a specific object and operating condition, a failure of the current approach or a concrete design constraint, and an observable technical outcome. Confirm from the supplied material or with the user; keep competing causes provisional if the evidence does not distinguish them. If a missing answer would change the main mechanism, remain in active exploration and show what evidence would resolve it.
 3. Verify assertions about existing techniques against traceable sources. Mark unverified background assertions as hypotheses. Base novelty and inventive-step assessments on the full-disclosure comparison in the prior-art workflow, and apply the search-to-revision loop within the authorized scope.
-4. Select one main inventive concept through the concept gate (at least three candidate chains examined, all but one rejected with stated reasons). State the technical problem, mechanism and directly produced technical effect. Walk through a normal case and a material boundary or failure case. Compare the outcomes with the prose and any formulas, figures and examples. Report unresolved choices that change the result.
+4. Select a main inventive concept only when a grounded chain connects the confirmed problem to a necessary feature, mechanism and direct effect. For a concept developed or changed in Explore, apply the [drafting handoff](references/idea-discovery.md#handoff-to-drafting) before drafting. Record why any real alternatives were rejected. Walk through a normal case and a material boundary or failure case. Compare the outcomes with the prose and any formulas, figures and examples. Report unresolved choices that change the result.
 5. For a protection outline or claims, identify why each proposed independent feature is necessary and where it is disclosed and implemented. Select the supported claim subject matter and map corresponding forms where applicable.
 6. Draft the technical disclosure so every claimed feature has support in the detailed description and at least one implementable embodiment.
 7. Audit claim support, terminology, dependencies, figure references, evidence status, template fidelity, and prohibited unsupported claims.
@@ -63,7 +65,7 @@ For software and algorithms, identify the data operation, state change, resource
 
 Before delivery, verify:
 
-- the concept gate was run — the rejected candidates and their reasons are recorded, and the retained chain is the one actually drafted;
+- for invention selection and drafting, the problem and material check was recorded, any actual alternatives have traceable reasons for rejection, and any essential cross-domain concept has a traceable role in the retained mechanism;
 - the main problem, main innovation, technical means, and technical effect are one-to-one;
 - terms and identifiers are consistent across title, summary, claims, description, examples, and figures;
 - every technical term is the established term of the invention's field, as recorded in the term table — no synonym rotation, no coined term, no generic word standing in for a domain term, and no unresolved `【术语待核】`;
@@ -89,8 +91,8 @@ Adapt the chain to the invention. Explain a mechanical assembly through applicab
 
 ## Iteration and review modes
 
-- **Explore**: inventory materials and produce candidate invention points; do not silently draft a final claim set.
-- **Draft**: write the approved deliverable while preserving evidence labels and template.
+- **Explore**: separate **Innovation Discovery** (L1 opportunity → L2 problem → L3 mechanism → L4 implementation) from **Patent Validation** (check the evidence and protection potential of a specific mechanism). Compare several meaningfully different routes when supported, then recommend at most three. Record unresolved or rejected routes and the next discriminating check. Run `python -B -X utf8 scripts/check_discovery.py <record.json>` before a Patent Validation handoff, when closing a return, and before reporting candidate grades. If new evidence or an independent objection defeats the core mechanism, preserve the old decision, return to the affected level and re-search the changed relationship. Do not start a disclosure or filing draft from an exploration decision.
+- **Draft**: write the authorized deliverable only after the problem and material check passes, a supported technical chain is selected, and any required exploration handoff is complete; preserve evidence labels and template.
 - **Audit**: find unsupported claims, missing support, novelty risks, inconsistencies, and delivery defects without rewriting unless requested.
 - **Revise**: update the authoritative draft in place or in the supplied revision workflow; preserve meaningful changes and unresolved issues.
-- **Package**: assemble claims, specification, abstract, figures, forms, and DOCX only after the invention spine is stable.
+- **Package**: assemble claims, specification, abstract, figures, forms, and DOCX only after the invention spine is stable and the drafting conditions are met.

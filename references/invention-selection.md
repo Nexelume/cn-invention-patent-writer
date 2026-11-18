@@ -2,20 +2,16 @@
 
 Use this reference when mining patent points, ranking alternatives, or deciding whether to split applications.
 
-## Concept gate (run before drafting any disclosure or claim)
+## Concept gate (after the problem and material check)
 
-Do not write the first idea that forms. The inventive concept is the one thing no rule can check for you — it comes from the model, and a weak concept cannot be rescued by clean formatting. The gate below forces a real selection instead of letting the first plausible thought through.
+Run the [problem and material check](project-intake.md#problem-and-material-check) first. If it fails, use [active invention discovery](idea-discovery.md) to screen research hypotheses only; do not select a main invention chain or draft.
 
-Before drafting, produce and record:
+1. **Review only grounded technical chains:** For each, show its source and state input → mechanism → output → direct effect. Compare the actual alternatives, if any; one grounded candidate is enough to assess. Do not add candidates to meet a quota. If no chain qualifies, record why and what needs confirming before drafting.
+2. **Record the technical distinction:** For each reviewed chain, compare against the known baseline and any closest prior art actually checked. Distinguish a different operation or structure from a desired outcome such as "more accurate". Mark an unchecked closest prior art as unknown rather than assigning a novelty conclusion.
+3. **Decide what to retain:** Record why each discarded alternative fails or is less suitable. The retained chain must address the confirmed problem, explain how its mechanism produces the direct effect, and state what remains proposed. Apply the Industrial-AI test in SKILL.md where relevant. If a cross-domain concept is essential, apply the [mechanism check](terminology.md#cross-domain-mechanism-check) before retaining it. Record supported fallback positions if preparing claims.
+4. **Proceed only within the requested mode:** A tentative candidate can be discussed in exploration. Enter drafting only with authorization and a supported technical spine. For concepts developed or materially changed in Explore, first apply the [drafting handoff](idea-discovery.md#handoff-to-drafting). Stop if a missing interface, unresolved cause, or ungrounded mechanism would change that spine; state the smallest check needed to continue.
 
-1. **At least three candidate technical chains**, each stated as one full chain — input → mechanism → output → effect — not as module names, feature lists, or "AI + X" slogans.
-2. **For each chain, the closest prior art and the distinction**, in two parts: (a) what the closest art actually does; (b) what this chain does differently. State whether that difference is a technical mechanism or merely an effect-level phrasing such as "more accurate", "more intelligent", "more efficient".
-3. **A stated rejection for all but one chain.** Each discarded chain gets a one-line reason that names the specific defect (for example: the mechanism is replaceable without changing the effect; the difference is only a desired result; the chain has no executable downstream action; the support is missing). A chain with no recorded rejection must not be silently dropped.
-4. **The one retained chain, with its three supporting tests**: (a) the effect is directly produced by the distinguishing mechanism, not asserted alongside it; (b) the mechanism survives the Industrial-AI test in SKILL.md (or, for non-AI inventions, has a concrete physical / signal-processing / control mechanism); (c) it has fallback positions that become dependent claims.
-
-This is a hard gate: if fewer than three chains are examined, state that and why. Record the comparison so the selection can be reviewed. This process consumes additional context and does not by itself demonstrate better invention quality or patentability.
-
-The gate does not substitute for a novelty search. It only guarantees that the concept was chosen, not that the choice is novel. A prior-art search may still overturn it.
+Selection does not establish novelty or patentability. Apply the separate prior-art workflow when requested or needed for the assessment.
 
 ## Candidate-point card
 

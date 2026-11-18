@@ -48,6 +48,10 @@ Rank sources by what they actually provide, not by authority name alone:
 - **Bibliographic and legal-status verification:** Use the relevant patent office records to confirm application number, dates, publication version, and status. Record anything that could not be verified and assess conditionally where it matters.
 - **Non-patent literature:** original standards, journal or conference papers, theses, official technical manuals, product documentation. Cite the original, not a search-results page.
 
+## Coverage for patent candidate validation
+
+Record five search entries for each candidate: Chinese invention patents and utility models, international patent publications and families, papers, technical standards, and public products or technical documentation. Search neighboring fields for the same mechanism across these sources and record which adjacent mechanisms were checked. For each entry record date, database, languages, scope, exact queries, results, original-text access and gaps. An unsuccessful search describes its own coverage. Record user-scoped or inaccessible categories explicitly. See [candidate validation](candidate-validation.md#search-and-comparison) for the schema.
+
 ## Evidence record
 
 For every retained patent, record:
@@ -66,7 +70,7 @@ Link each material assertion about what an existing technique does or fails to d
 
 ## Novelty matrix
 
-Use one row per essential feature (including required relationships or steps) and one column per closest reference. Record two separate fields in each cell:
+Use one row per essential feature (including required relationships or steps) and one column per specific publication and version. Keep different publications in separate columns, including a patent and a similar paper. Use the retrieved A/B or international member actually read as its own column if mapped. The register records family relationships; each matrix cell uses the disclosure of its own publication. Record two separate fields in each cell:
 
 | Field | Values |
 |---|---|
@@ -105,6 +109,12 @@ A search is **not complete** when similar patents are found. It is complete only
 2. **Test candidate distinctions.** Take the 未找到 features or relationships from the comparison and, if further search is in scope, search them again using synonyms, the distinctive sub-combination, and adjacent technical fields. Resolve material 不确定 entries where possible. A single reference's silence does not establish an unoccupied area. A desired effect needs a disclosed mechanism that produces it.
 3. **Test the proposed chain.** Identify a defined input, executable mechanism, output or system action, and directly attributable technical effect. Explain how the candidate distinctions interact with the necessary known features, where the user's materials support the mechanism, and what technical problem and combination rationale the closest art suggests. Flag any genuinely new or unsupported mechanism for confirmation.
 4. **Close within the authorized deliverable.** In exploration, search, or audit, report which candidate chain merits further review or which evidence is missing. Where drafting or revision is authorized and the chain is supported, use the chain to revise the claim outline and cite the closest reference in the disclosure. If no coherent supported chain remains, pause claim drafting and identify the smallest missing technical or evidence item. Record the decision and any revision actually made.
+
+## Combination and simple alternatives
+
+After the single-document findings, test technically credible combinations separately. Record the starting document and its operation, each missing feature and the supplementary disclosure supplying it with precise locations, the technical reason a skilled person would adopt it, interfaces and state/data compatibility, operating conditions and constraints, required adaptations, and whether the resulting effect would reasonably follow. Record successive additions for combinations involving more than two documents and assess the cumulative technical teaching. Shared field or objective alone does not establish a combination.
+
+Test the simplest credible alternative separately from the closest published mechanism under the same target, constraints, metric and conditions. If evidence establishes it suffices, retire the extra mechanism and reopen route comparison. If equality is only suspected, record the comparison that could resolve it. Explain which effect requires the added operation.
 
 ## Conclusion discipline
 

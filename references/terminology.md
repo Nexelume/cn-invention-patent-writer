@@ -13,6 +13,12 @@ Terminology affects whether the description is clear and complete (专利法第�
 5. **Label uncertainty instead of substituting a generic word.** When the correct domain term is unknown, write the candidate term followed by `【术语待核】`, propose two or three alternatives with their sources, and ask. Never silently downgrade to a generic word such as 模块、装置、单元、数据、信息、处理.
 6. **Multi-field inventions keep both vocabularies.** For a cross-domain chain (for example acoustics plus machine learning, or mechanics plus control), use each field's own terms and add one sentence at the junction that states how the two vocabularies refer to the same object. Do not flatten one field into the other's words.
 
+## Cross-domain mechanism check
+
+Before treating a concept borrowed from another field as an essential feature, identify the target object or state, the inputs the system actually has or the design specifies, the concrete operation on those inputs, and the output or downstream decision it changes. Walk through one relevant case with and without the operation (or against the existing operation): which observable outcome should differ, and why? A design walkthrough can support an expected effect; report it as proposed unless verified.
+
+If the inputs, action, or downstream consequence cannot be mapped, keep the concept out of the main chain and claims. If the concept is necessary to the proposed chain, leave the chain in exploration until that gap is resolved. A valid term or cited reference does not establish a mechanism's relevance.
+
 ## Term sourcing hierarchy
 
 Prefer, in order:
@@ -63,7 +69,7 @@ Run these before delivery; most are mechanically checkable against the term tabl
 | T6 | 缩写首次出现有全称，且全文只出现缩写 | `[机]` |
 | T7 | 量、符号、单位与术语表一致，符号无复用 | `[机]` |
 | T8 | 无自造词、无营销词、无未定义比喻 | `[人]` |
-| T9 | 跨领域方案的两套术语在衔接处已说明对应关系 | `[人]` |
+| T9 | 跨领域概念已说明术语对应关系、实际输入、具体操作、改变的后续行为及可观察差异；机制未明确的概念未进入发明主线 | `[人]` |
 | T10 | 上位概括处有说明书支撑，未超出公开范围 | `[人]` |
 | T11 | `【术语待核】` 已全部清零或列入待确认清单 | `[机]` |
 

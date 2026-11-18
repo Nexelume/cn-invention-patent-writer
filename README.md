@@ -4,6 +4,8 @@
 
 本技能适用于软件、人工智能、电子、声学、通信、制造、控制、医疗器械、材料、能源等技术领域，不局限于某一个科研项目。
 
+想按场景了解这个技能能做什么、要准备哪些材料以及会收到什么，请看[功能与使用说明](USER_GUIDE.md)。
+
 ## 安装到 Codex
 
 在终端执行以下命令，安装到当前用户的 Codex 技能目录。命令需要 Git。
@@ -34,9 +36,10 @@ git clone https://github.com/Nexelume/cn-invention-patent-writer.git "$HOME/.age
 
 | 任务 | 建议提供的材料 | 本次应得到的结果 |
 |---|---|---|
-| 探索发明构思 | 设计说明、代码或试验记录 | 候选技术链、取舍理由、证据缺口 |
+| 只有研究方向 | 一个方向就可开始；具体场景、失败样例或设计约束可一并提供 | 公开技术路线、候选问题、关键未知和最小验证建议；暂不起草 |
+| 探索发明构思 | 设计说明、代码或试验记录 | 有材料支撑的候选技术链、取舍理由、证据缺口 |
 | 查新或指定文献比对 | 拟保护的技术组合、对比文献或检索范围 | 查询记录、逐特征公开情况、原文位置及结论限制 |
-| 起草交底书或权利要求 | 已选构思、实现细节、实测与设计参数、模板 | 可实施的交底草稿，或附有说明书支持位置的权利要求草稿 |
+| 起草交底书或权利要求 | 已选构思、可实施的设计细节、已有验证记录或拟议设计参数、模板（如有） | 可实施的交底草稿，或附有说明书支持位置的权利要求草稿 |
 | 审查或定向修订 | 权威草稿、相关材料及允许修改的范围 | 可定位的问题清单，或针对指定问题的修订稿 |
 | 成套交付或 Word 排版 | 已稳定的方案、模板、图件和已确认的申请信息 | 约定文件、检查结果和仍需确认的项目 |
 
@@ -47,7 +50,7 @@ git clone https://github.com/Nexelume/cn-invention-patent-writer.git "$HOME/.age
 - 扫描和整理项目材料，识别权威技术来源与证据缺口
 - 判定发明所属技术领域，建立本领域术语表并全文统一使用专业术语
 - 从论文、代码和工程资料中挖掘候选发明点
-- 起草前执行「构思门槛」：至少提出三条候选技术链条，逐条给出最近现有技术与区别，并写明淘汰理由，只保留一条进入起草
+- 先[核查技术问题和材料](references/project-intake.md#problem-and-material-check)，再[筛选有依据的候选链](references/invention-selection.md#concept-gate-after-the-problem-and-material-check)。只有一条就评估这一条；一条也站不住就指出缺口，暂不起草
 - 判断候选方案是否具有完整的技术链条和可保护性
 - 设计单一发明构思，分析是否需要拆分多个申请
 - 检索和比较中国及国际现有技术
@@ -68,11 +71,13 @@ git clone https://github.com/Nexelume/cn-invention-patent-writer.git "$HOME/.age
 
 ### Explore：探索
 
-扫描材料，提炼候选专利点，指出证据缺口和可能的申请拆分方向。不直接把候选方案写成最终权利要求。
+先用当前材料与公开文献建立机会地图，从「缺什么能力、为什么有这个技术问题」走到「改变哪个机制、怎么实现」。开放探索通常比较三至五条有实质差异的路线，证据只支持更少时不凑数，最终最多推荐三条。发现重合或用户认为太窄时退回相应层次，保留原路线和理由。只有具备具体机制和可验证区别的候选才进入专利评估，探索不交付交底书。
+
+候选进入专利验证后，机会档案记录五类来源的检索覆盖、逐篇特征比对、技术组合与简单替代、最小验证方案、独立反查和 A–D 准入结论。A 表示值得进入深度查新，B 表示继续构思，C 表示暂不建议申请，D 表示淘汰。详见[候选验证规则](references/candidate-validation.md)。
 
 ### Draft：起草
 
-根据已确定的发明构思撰写交底书、权利要求、说明书、摘要、实施例或其他指定材料。
+在技术问题明确、材料足以支持主线后，按授权撰写交底书、权利要求、说明书、摘要、实施例或其他指定材料。由探索转入起草时，先完成近邻比对、反向审查、最小验证与投入判断，并确认用户选择的主线。跨领域概念进入主线前，要说清它用什么输入、做什么操作、改变哪一个后续行为，以及去掉它会有什么可观察的差异。
 
 ### Audit：审查
 
@@ -85,6 +90,12 @@ git clone https://github.com/Nexelume/cn-invention-patent-writer.git "$HOME/.age
 ### Package：成套交付
 
 在发明构思稳定后，整合权利要求、说明书、摘要、附图和 DOCX 等交付物，并执行交叉一致性检查。
+
+## 示例：输送线视觉剔除
+
+沿用已有的虚构评测案例。若只知道「想给瓶盖检测加 AI」，先比较公开的缺陷识别、输送跟踪和剔除控制机制，再形成两个待核实的方向：出错的是缺陷识别，还是认对了却吹掉后一瓶？已有[编码器动态补偿方案](https://patents.google.com/patent/US9147326B2/en)（图 5，步骤 503–515）可作剔除时机的比对线索；不能直接把「用编码器做变速补偿」当作创新，也不能由此确定项目的错因。建议用少量可辨认的瓶体，在恒速和变速工况下逐瓶对照人工缺陷标签、识别结果、剔除指令和实际被吹掉的瓶。若识别结果正确却错剔，先查目标关联和剔除时机；若识别就错了，先查图像与识别条件。在分清问题前不写交底书。
+
+原材料提到「反馈学习」，但 PLC 只确认收到指令，不能确认实际动作或哪一瓶被剔除；剔除后传感器也还只是备选。在明确实际结果怎样对应到具体瓶体，以及它会怎样影响后续数据或控制前，不把反馈学习列入发明主线。
 
 ## 基本技术链条
 
@@ -194,10 +205,16 @@ git clone https://github.com/Nexelume/cn-invention-patent-writer.git "$HOME/.age
 cn-invention-patent-writer/
 ├── SKILL.md
 ├── README.md
+├── USER_GUIDE.md
 ├── scripts/
-│   └── check_form.py
+│   ├── check_form.py
+│   ├── check_discovery.py
+│   └── patent_validation.py
 └── references/
     ├── project-intake.md
+    ├── idea-discovery.md
+    ├── opportunity-record.md
+    ├── candidate-validation.md
     ├── invention-selection.md
     ├── deliverable-matrix.md
     ├── drafting.md
@@ -207,6 +224,8 @@ cn-invention-patent-writer/
     ├── prior-art.md
     └── docx-delivery.md
 ```
+
+用 `python -B -X utf8 scripts/check_discovery.py <record.json>` 检查机会档案的流程、证据字段和准入一致性。候选验证文件可用 `python -B -X utf8 scripts/patent_validation.py <assessment.json> --model <可用模型>` 交给新的独立会话，结果包含对应证据包的校验值。详见[使用说明](USER_GUIDE.md#独立反查和准入结果)。
 
 ## 形式自检脚本
 
@@ -227,7 +246,10 @@ python scripts/check_form.py --self-test
 ## 参考文件路由
 
 - `project-intake.md`：项目目录、论文/代码包和混合材料接入
-- `invention-selection.md`：发明点筛选、排序和申请拆分
+- [主动构思探索](references/idea-discovery.md)：机会地图、多路线比较、证据驱动回退及专利评估交接
+- [创新机会档案](references/opportunity-record.md)：记录候选与回退、检查是否越级
+- 五类来源、特征比对、独立反查和 A–D 准入见[候选验证](references/candidate-validation.md)。
+- `invention-selection.md`：有材料支持的发明点筛选、排序和申请拆分
 - `deliverable-matrix.md`：交付物分类和完成门槛
 - `drafting.md`：交底书、权利要求、实施例和参数
 - `terminology.md`：领域术语表、术语选择与术语审计
